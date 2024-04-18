@@ -13,9 +13,15 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=password
 
+  redis-cache:
+    container_name: redis-container
+    image: redis/redis-stack-server
+    ports:
+      - 6378:6379
+
   url-shortener:
     container_name: urlshortener-container
-    restart: always
+#    restart: always
     image: urlshortener
     build: .
     ports:
@@ -24,6 +30,8 @@ services:
       MYSQL_HOST: mysqldb
       MYSQL_USER: admin
       MYSQL_PASSWORD: password
-      MYSQL_PORT: 3307
+      MYSQL_PORT: 3306
+      REDIS_PORT: 6379
+      REDIS_HOST: redis-container
     depends_on:
       - mysqldb

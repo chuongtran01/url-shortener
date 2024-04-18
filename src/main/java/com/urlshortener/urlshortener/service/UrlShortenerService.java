@@ -10,7 +10,6 @@ import com.urlshortener.urlshortener.generator.UUIDGeneratorImpl;
 import com.urlshortener.urlshortener.mapper.UrlMapper;
 import com.urlshortener.urlshortener.repository.UrlRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
